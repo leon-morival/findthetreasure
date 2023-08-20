@@ -2,7 +2,7 @@
 
 class MonstersGenerator {
     public function generateMonsters() {
-        $nombreMonstres = rand(1, 5); // Nombre aléatoire de monstres
+        $nombreMonstres = rand(10, 50); // Nombre aléatoire de monstres
 
         $monstres = array(); // Tableau pour stocker les monstres générés
 
