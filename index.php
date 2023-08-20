@@ -8,8 +8,8 @@
 </head>
 <body>
     <div style="text-align: center;">
-    <img src="bandeau.jpg" alt="Logo">
-</div>
+        <img src="bandeau.jpg" alt="Logo">
+    </div>
 <div class="container">
     <div class="header">
         <h1 style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
@@ -22,7 +22,7 @@
     <div style="text-align: center;">
         <button>Commencer</button>
     </div>
-    <div id="contenu">
+    <div id="contenudialogue">
     </div>
 </body>
 </html>
