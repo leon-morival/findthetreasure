@@ -1,29 +1,38 @@
 <?php
 
 class MonstersGenerator {
-    public function generateMonsters($forceJoueur) {
-        $nombreMonstres = rand(10, 50); // Nombre aléatoire de monstres
+    public function generateMonsters() {
+        $nombreMonstres = rand(1, 5); // Nombre aléatoire de monstres
 
         $monstres = array(); // Tableau pour stocker les monstres générés
 
         for ($i = 0; $i < $nombreMonstres; $i++) {
+            do {
+                $positionX = rand(0, 20); // Coordonnée X aléatoire
+                $positionY = rand(0, 20); // Coordonnée Y aléatoire
+                $positionOccupee = false;
+
+                foreach ($monstres as $monstre) {
+                    if ($monstre["positionX"] === $positionX && $monstre["positionY"] === $positionY) {
+                        $positionOccupee = true;
+                        break;
+                    }
+                }
+            } while ($positionOccupee);
+
             $monstre = array(
                 "pv" => rand(0, 20), // Points de vie du monstre
                 "force" => rand(0, 10), // Force du monstre
-                "positionX" => rand(0, 20), // Coordonnée X du monstre
-                "positionY" => rand(0, 20), // Coordonnée Y du monstre
+                "positionX" => $positionX, // Coordonnée X du monstre
+                "positionY" => $positionY, // Coordonnée Y du monstre
             );
-            array_push($monstres, $monstre); // Ajouter le monstre au tableau
-        }
 
-        if ($forceJoueur <= $monstre["force"]) {
-            // Si la force du joueur est inférieure ou égale à la force du monstre
-            // Ajoutez le monstre au tableau
-            array_push($monstres, $monstre);
+            array_push($monstres, $monstre); // Ajouter le monstre au tableau
         }
 
         return $monstres; // Retourner le tableau de monstres générés
     }
 }
+
 
 ?>
