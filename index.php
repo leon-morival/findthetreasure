@@ -20,7 +20,7 @@
         <p>Le trésor légendaire attend celui ou celle qui aura le courage de se confronter aux horreurs de ce monde. Êtes-vous prêt à relever le défi, à conquérir vos peurs et à obtenir la récompense ultime ? Le destin du trésor et du monde repose entre vos mains.</p>
     </div>
     <div style="text-align: center;">
-        <button>Commencer</button>
+        <button>Commencer une partie</button>
     </div>
     <div id="contenudialogue">
     </div>
