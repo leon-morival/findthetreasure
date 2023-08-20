@@ -4,22 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find the Treasure</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>FIND THE TREASURE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-
-
-    <!-- Bootstrap Javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    <div style="text-align: center;">
+        <img src="bandeau.jpg" alt="Logo">
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1 style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
+        </div>
+        <p>Plongez au cœur d'une aventure épique dans un monde mystérieux et dangereux. Une légende ancienne parle d'un trésor caché quelque part sur cette terre maudite. Mais ce n'est pas aussi simple que de suivre une carte au trésor. Vous devez affronter des créatures terrifiantes pour révéler les secrets de cet endroit.</p>
+        <p>Armez-vous de courage et de compétences, car chaque coin obscur de la carte pourrait révéler un monstre assoiffé de sang. Votre détermination sera mise à l'épreuve. Chaque combat gagné vous rapprochera de la gloire, mais chaque erreur pourrait vous rapprocher de la défaite.</p>
+        <p>Explorez des forêts ténébreuses, des montagnes effrayantes et des cavernes souterraines, tous abritant des défis mortels. À mesure que vous progresserez, vous découvrirez des alliés qui vous aideront dans votre quête et vous fourniront des armes puissantes.</p>
+        <p>Le trésor légendaire attend celui ou celle qui aura le courage de se confronter aux horreurs de ce monde. Êtes-vous prêt à relever le défi, à conquérir vos peurs et à obtenir la récompense ultime ? Le destin du trésor et du monde repose entre vos mains.</p>
+    </div>
+    <div style="text-align: center;">
+        <button onclick="startGame()">Commencer une partie</button>
+    </div>
+    <script>
+        function startGame() {
+            window.location.href = 'game.php'; // Redirige vers la page game.php
+        }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-    </script>
+    <div id="contenu">
+    </div>
+    <div style="text-align: center; padding-top: 20px;">
+        <img src="footer.jpg" alt="Logo">
+    </div>
 </body>
 
 </html>
