@@ -1,6 +1,7 @@
 <?php
 require 'Chest.php';
 
+
 class Player
 {
     private $positionX;
@@ -10,9 +11,38 @@ class Player
 
     public function __construct()
     {
-
         $this->positionX = rand(0, 20);
         $this->positionY = rand(0, 20);
+        // Monster
+        $monster = new Monster();
+        $monsterArray = $monster->generateMonsters();
+
+        // echo ('<br>');
+        foreach ($monsterArray as $monsters) {
+
+            if (($this->positionX == $monsters->getPositionX()) && ($this->positionY == $monsters->getPositionY())) {
+
+                // echo "<br>";
+                // echo "le joueur est sur la case d'un monstre";
+                // echo "<br>";
+                // echo "position x joueur" . $this->positionX;
+                // echo " position y joueur" . $this->positionY;
+                // echo "<br>";
+                // echo "position x monstre" . $monsters->getPositionX();
+                // echo " position y monstre" . $monsters->getPositionY();
+                // echo "<br>";
+                echo "test";
+                $this->positionX = rand(0, 20);
+                $this->positionY = rand(0, 20);
+                reset($monsterArray);
+            } else {
+            }
+
+            // echo "le joueur n'est pas sur la case d'un monstre";
+            // echo "<br>";
+        }
+
+
 
 
         $this->xp = 0;
@@ -43,11 +73,14 @@ class Player
                 $this->positionX -= 1;
                 break;
         }
+
+
         $chest = new Chest(); // Create a new instance of the Chest class
         $chestPositionX = $chest->getPositionX(); // Retrieve the positionX value
         $chestPositionY = $chest->getPositionY();
         while ($chestPositionX == $this->positionX && $chestPositionY == $this->positionY) {
             echo "coffre trouver";
+            break;
         }
     }
 
@@ -63,6 +96,3 @@ class Player
 }
 
 // Usage
-$player = new Player();
-
-$player->getPositionX();
