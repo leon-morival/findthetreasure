@@ -1,6 +1,6 @@
 <?php
 require 'Chest.php';
-require 'Monster.php';
+
 class Player
 {
     private $positionX;
@@ -10,14 +10,20 @@ class Player
 
     public function __construct()
     {
+
         $this->positionX = rand(0, 20);
         $this->positionY = rand(0, 20);
+
+
         $this->xp = 0;
         $this->power = rand(50, 100);
     }
 
+
     public function move($direction)
+
     {
+
         switch ($direction) {
             case 0:
                 if ($this->positionY == 0 || $this->positionY == 20) break;
@@ -37,6 +43,12 @@ class Player
                 $this->positionX -= 1;
                 break;
         }
+        $chest = new Chest(); // Create a new instance of the Chest class
+        $chestPositionX = $chest->getPositionX(); // Retrieve the positionX value
+        $chestPositionY = $chest->getPositionY();
+        while ($chestPositionX == $this->positionX && $chestPositionY == $this->positionY) {
+            echo "coffre trouver";
+        }
     }
 
     function getPositionX()
@@ -52,3 +64,5 @@ class Player
 
 // Usage
 $player = new Player();
+
+$player->getPositionX();

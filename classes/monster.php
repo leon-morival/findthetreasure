@@ -33,6 +33,3 @@ class MonstersGenerator {
         return $monstres; // Retourner le tableau de monstres générés
     }
 }
-
-
-?>
