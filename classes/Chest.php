@@ -7,8 +7,17 @@ class Chest
 
     public function __construct()
     {
-        $this->positionX = rand(0, 20);
-        $this->positionY = rand(0, 20);
+        // Initialize chest's position based on session or other logic
+        if (isset($_SESSION['chestPositionX']) && isset($_SESSION['chestPositionY'])) {
+            $this->positionX = $_SESSION['chestPositionX'];
+            $this->positionY = $_SESSION['chestPositionY'];
+        } else {
+            // Set initial position
+            $this->positionX = rand(0, 20);
+            $this->positionY = rand(0, 20);
+            $_SESSION['chestPositionX'] = $this->positionX;
+            $_SESSION['chestPositionY'] = $this->positionY;
+        }
     }
 
     function getPositionX()
