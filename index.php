@@ -10,7 +10,7 @@
 
 <body>
     <div style="text-align: center;">
-        <img src="bandeau.jpg" alt="Logo">
+        <a href="http://localhost/findthetreasure/index.php"><img src="bandeau.jpg" alt="Logo"></a>
     </div>
     <div class="container">
         <div class="header">
@@ -22,7 +22,7 @@
         <p>Le trésor légendaire attend celui ou celle qui aura le courage de se confronter aux horreurs de ce monde. Êtes-vous prêt à relever le défi, à conquérir vos peurs et à obtenir la récompense ultime ? Le destin du trésor et du monde repose entre vos mains.</p>
     </div>
     <div style="text-align: center;">
-        <button onclick="startGame()">Commencer une partie</button>
+        <button class="btn btn-primary" onclick="startGame()">Commencer une partie</button>
     </div>
 
     <!-- Redirige vers la page game.php -->
