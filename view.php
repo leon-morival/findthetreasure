@@ -21,10 +21,23 @@
         <p>Chest Position: (<?php echo $chest->getPositionX(); ?>, <?php echo $chest->getPositionY(); ?>)</p>
 
         <p>Move the player:</p>
-        <a class=" " href="controller.php?direction=0">Up</a>
-        <a href="controller.php?direction=1">Right</a>
-        <a href="controller.php?direction=2">Down</a>
-        <a href="controller.php?direction=3">Left</a>
+        <div class="row w-25 justify-center">
+            <div class="col"></div>
+            <div class="col"> <a class=" " href="controller.php?direction=0">Up</a></div>
+            <div class="col"></div>
+            <div class="w-100"></div>
+            <div class="col"> <a href="controller.php?direction=3">Left</a></div>
+            <div class="col"></div>
+            <div class="col"> <a class="btn btn-danger" href="controller.php?direction=1">Right</a></div>
+            <div class="w-100"></div>
+            <div class="col"></div>
+            <div class="col"> <a href="controller.php?direction=2">Down</a></div>
+            <div class="col"></div>
+        </div>
+
+
+
+
     </div>
 </body>
 

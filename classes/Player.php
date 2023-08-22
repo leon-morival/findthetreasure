@@ -1,7 +1,7 @@
 <?php
 require_once 'Chest.php';
 
-
+require_once 'Monster.php';
 class Player
 {
     private $positionX;
@@ -23,40 +23,29 @@ class Player
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
         }
-        // Monster
-        // $monster = new Monster();
-        // $monsterArray = $monster->generateMonsters();
 
-        // echo ('<br>');
-        // foreach ($monsterArray as $monsters) {
+        $monster = new Monster([5, 10]);
+        $monsterArray = $monster->generateMonsters([5, 10]);
 
-        //     if (($this->positionX == $monsters->getPositionX()) && ($this->positionY == $monsters->getPositionY())) {
+        echo ('<br>');
+        foreach ($monsterArray as $monsters) {
 
-        //         // echo "<br>";
-        //         // echo "le joueur est sur la case d'un monstre";
-        //         // echo "<br>";
-        //         // echo "position x joueur" . $this->positionX;
-        //         // echo " position y joueur" . $this->positionY;
-        //         // echo "<br>";
-        //         // echo "position x monstre" . $monsters->getPositionX();
-        //         // echo " position y monstre" . $monsters->getPositionY();
-        //         // echo "<br>";
-        //         echo "test";
-        //         // $this->positionX = rand(0, 20);
-        //         // $this->positionY = rand(0, 20);
-        //         reset($monsterArray);
-        //     } else {
-        //     }
+            if (($this->positionX == $monsters->getPositionX()) && ($this->positionY == $monsters->getPositionY())) {
 
-        //     // echo "le joueur n'est pas sur la case d'un monstre";
-        //     // echo "<br>";
-        // }
+
+                echo "Le combat commence";
+
+                reset($monsterArray);
+            } else {
+                echo "Position (" . $monsters->getPositionX() . ', ' . $monsters->getPositionY() . ')';
+            }
+        }
 
 
 
 
-        // $this->xp = 0;
-        // $this->power = rand(50, 100);
+        $this->xp = 0;
+        $this->power = rand(50, 100);
     }
 
 
