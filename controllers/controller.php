@@ -1,39 +1,38 @@
 <?php
 session_start();
 require_once '../models/Player.php';
-
-generateMonsters(2);
-
+require_once '../models/Monster.php';
+$monster = new Monster();
 $player = new Player();
 $chest = new Chest();
+$monster->getMonsters();
+var_dump($monster->getMonsters());
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
 
 
-    var_dump(generateMonsters(2));
+
     // Imprimez le tableau de monstres pour vérifier
-    
+
+
+}
+if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
+    // Reset the game by generating new values and clearing the session data
+    $player = new Player();
+    $monster = new Monster();
+    $chest = new Chest();
+
+    session_unset(); // Clear all session variables
+    session_destroy(); // Destroy the session
+    session_start(); // Start a new session
 
 }
 
 
-function generateMonsters($numberOfMonsters)
-{
-    $monsters = array();
 
-    for ($i = 0; $i < $numberOfMonsters; $i++) {
-        // Utilisation du timestamp actuel pour obtenir des valeurs pseudo-aléatoires
-        $positionX = 100 % 21;
-        $positionY = ($positionX + $i) % 21; // Utilisation de $i pour varier les valeurs
 
-        $monster = new Monster($positionX, $positionY);
-        $monsters[] = $monster;
-    }
-
-    return $monsters;
-}
 
 // Include the view
 require_once '../views/view.php';
