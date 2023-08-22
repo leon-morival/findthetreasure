@@ -1,4 +1,4 @@
-<?php require_once 'controller.php'; ?>
+<?php require_once '../controllers/controller.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +21,10 @@
         <p>Chest Position: (<?php echo $chest->getPositionX(); ?>, <?php echo $chest->getPositionY(); ?>)</p>
 
         <p>Move the player:</p>
-        <a class=" " href="controller.php?direction=0">Up</a>
-        <a href="controller.php?direction=1">Right</a>
-        <a href="controller.php?direction=2">Down</a>
-        <a href="controller.php?direction=3">Left</a>
+        <a class=" " href="../controllers/controller.php?direction=0">Up</a>
+        <a href="../controllers/controller.php?direction=1">Right</a>
+        <a href="../controllers/controller.php?direction=2">Down</a>
+        <a href="../controllers/controller.php?direction=3">Left</a>
     </div>
 </body>
 
