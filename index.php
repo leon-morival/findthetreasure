@@ -10,29 +10,37 @@
 
 <body>
     <div style="text-align: center;">
-        <img src="bandeau.jpg" alt="Logo">
+        <img src="./public/assets/bandeau.jpg" alt="Logo">
     </div>
     <div class="container">
         <div class="header">
             <h1 style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
         </div>
-        <p>Plongez au cœur d'une aventure épique dans un monde mystérieux et dangereux. Une légende ancienne parle d'un trésor caché quelque part sur cette terre maudite. Mais ce n'est pas aussi simple que de suivre une carte au trésor. Vous devez affronter des créatures terrifiantes pour révéler les secrets de cet endroit.</p>
-        <p>Armez-vous de courage et de compétences, car chaque coin obscur de la carte pourrait révéler un monstre assoiffé de sang. Votre détermination sera mise à l'épreuve. Chaque combat gagné vous rapprochera de la gloire, mais chaque erreur pourrait vous rapprocher de la défaite.</p>
-        <p>Explorez des forêts ténébreuses, des montagnes effrayantes et des cavernes souterraines, tous abritant des défis mortels. À mesure que vous progresserez, vous découvrirez des alliés qui vous aideront dans votre quête et vous fourniront des armes puissantes.</p>
-        <p>Le trésor légendaire attend celui ou celle qui aura le courage de se confronter aux horreurs de ce monde. Êtes-vous prêt à relever le défi, à conquérir vos peurs et à obtenir la récompense ultime ? Le destin du trésor et du monde repose entre vos mains.</p>
+        <p>Plongez au cœur d'une aventure épique dans un monde mystérieux et dangereux. Une légende ancienne parle d'un
+            trésor caché quelque part sur cette terre maudite. Mais ce n'est pas aussi simple que de suivre une carte au
+            trésor. Vous devez affronter des créatures terrifiantes pour révéler les secrets de cet endroit.</p>
+        <p>Armez-vous de courage et de compétences, car chaque coin obscur de la carte pourrait révéler un monstre
+            assoiffé de sang. Votre détermination sera mise à l'épreuve. Chaque combat gagné vous rapprochera de la
+            gloire, mais chaque erreur pourrait vous rapprocher de la défaite.</p>
+        <p>Explorez des forêts ténébreuses, des montagnes effrayantes et des cavernes souterraines, tous abritant des
+            défis mortels. À mesure que vous progresserez, vous découvrirez des alliés qui vous aideront dans votre
+            quête et vous fourniront des armes puissantes.</p>
+        <p>Le trésor légendaire attend celui ou celle qui aura le courage de se confronter aux horreurs de ce monde.
+            Êtes-vous prêt à relever le défi, à conquérir vos peurs et à obtenir la récompense ultime ? Le destin du
+            trésor et du monde repose entre vos mains.</p>
     </div>
     <div style="text-align: center;">
         <button onclick="startGame()">Commencer une partie</button>
     </div>
     <script>
         function startGame() {
-            window.location.href = 'game.php'; // Redirige vers la page game.php
+            window.location.href = './views/view.php'; // Redirige vers la page game.php
         }
     </script>
     <div id="contenu">
     </div>
     <div style="text-align: center; padding-top: 20px;">
-        <img src="footer.jpg" alt="Logo">
+        <img src="./public/assets/footer.jpg" alt="Logo">
     </div>
 </body>
 
