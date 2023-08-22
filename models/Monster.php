@@ -3,19 +3,29 @@ class Monster
 {
     private $arraySize;
     private $monsterArray = [];
+    private $pv;
+    private $force;
+    private $x;
+    private $y;
 
     public function __construct()
     {
         $this->arraySize = rand(0, 10);
         $this->retrieveMonsters();
+        $this->pv;
+        $this->force;
+        $this->x;
+        $this->y;
     }
 
     private function generateMonsters()
     {
         while (count($this->monsterArray) < $this->arraySize) {
-            $x = rand(0, 20);
-            $y = rand(0, 20);
-            $point = [$x, $y];
+            $this->x = rand(0, 20);
+            $this->y = rand(0, 20);
+            $this->pv = rand(20, 50);
+            $this->force = rand(30, 40);
+            $point = ["positionX" => $this->x, "positionY" => $this->y, "PV" => $this->pv, "Force" => $this->force];
 
             if (!$this->isDuplicate($point)) {
                 $this->monsterArray[] = $point;
