@@ -33,12 +33,12 @@
         }
 
         .monster {
-            background-color: red;
+            background-color: white;
             color: white;
         }
 
         .chest {
-            background-color: darkgoldenrod;
+            background-color: white;
             color: white;
         }
     </style>
@@ -63,9 +63,9 @@
                     // Assuming $player, $monster, and $chest are already initialized
 
                     // Create a 20x20 game board
-                    $boardSize = 20;
+                    $boardSize = 21;
                     for ($row = 1; $row < $boardSize; $row++) {
-                        for ($col = 0; $col < $boardSize; $col++) {
+                        for ($col = 1; $col < $boardSize; $col++) {
                             echo '<div class="cell';
 
                             // Check if the current position contains the player, monster, or chest
@@ -74,7 +74,7 @@
                             } elseif ($chest->getPositionX() === $col && $chest->getPositionY() === $row) {
                                 echo ' chest"><img src="../public/assets/golden_treasure.png">';
                             } elseif (in_array([$col, $row], $monster->getMonsters(), true)) {
-                                echo ' monster"><img src="../public/assets/monster.png">';
+                                echo ' monster"><img style="border-radius:50%;" src="../public/assets/monster.png">';
                             } else {
                                 echo '">';
                             }
