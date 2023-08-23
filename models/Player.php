@@ -10,7 +10,6 @@ class Player
     private $positionY;
     private $xp;
     private $power;
-    private $pv;
 
     public function __construct()
     {
