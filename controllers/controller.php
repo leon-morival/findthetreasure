@@ -6,12 +6,29 @@ $monster = new Monster();
 $player = new Player();
 $chest = new Chest();
 $monster->getMonsters();
-var_dump($monster->getMonsters());
+
+$playerX = $player->getPositionX();
+$playerY = $player->getPositionY();
+
+$chestX = $chest->getPositionX();
+$chestY = $chest->getPositionY();
+
+// Compare positions and display message if they are the same
+
+
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
 
+    if ($playerX === $chestX && $playerY === $chestY) {
+        echo "Congratulations! You found the chest!";
+        echo "player position : " . $playerX . ' ' . $playerY;
+        echo '<br>';
+        echo "chest position : " . $chestX . ' ' . $chestY;
+    } else {
+        echo "Keep exploring...";
+    }
 
 
     // Imprimez le tableau de monstres pour vérifier
@@ -29,6 +46,7 @@ if (isset($_GET['direction'])) {
     header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
+// var_dump($monster->getMonsters());
 
 
 

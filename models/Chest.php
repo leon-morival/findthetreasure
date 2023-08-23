@@ -1,7 +1,10 @@
 <?php
-require 'Monster.php';
+require_once 'Player.php';
+
+
 class Chest
 {
+
     private $positionY;
     private $positionX;
 

@@ -4,6 +4,8 @@ require_once 'Chest.php';
 
 class Player
 {
+
+    private $chestX;
     private $positionX;
     private $positionY;
     private $xp;
@@ -11,6 +13,7 @@ class Player
 
     public function __construct()
     {
+
         $this->positionX = rand(0, 20);
         $this->positionY = rand(0, 20);
         if (isset($_SESSION['playerPositionX'])) {
