@@ -10,7 +10,7 @@ class Monster
 
     public function __construct()
     {
-        $this->arraySize = rand(0, 10);
+        $this->arraySize = rand(10, 50);
         $this->retrieveMonsters();
         $this->pv;
         $this->force;
