@@ -51,10 +51,19 @@ $chest = new Chest();
                                 echo ' player">P';
                             } elseif ($chest->getPositionX() === $col && $chest->getPositionY() === $row) {
                                 echo ' chest">C';
-                            } elseif (in_array([$col, $row], $monster->getMonsters(), true)) {
-                                echo ' monster">M';
                             } else {
-                                echo '">';
+                                $isMonsterHere = false;
+                                foreach ($monster->getMonsters() as $monsterData) {
+                                    if ($monsterData["positionX"] === $col && $monsterData["positionY"] === $row) {
+                                        $isMonsterHere = true;
+                                        break;
+                                    }
+                                }
+                                if ($isMonsterHere) {
+                                    echo ' monster">M';
+                                } else {
+                                    echo '">';
+                                }
                             }
 
                             echo '</div>';
@@ -113,6 +122,7 @@ $chest = new Chest();
     <div style="text-align: center; padding-top: 20px;">
         <img src="../public/assets/footer.jpg" alt="Logo">
     </div>
+<?php var_dump($monster->getMonsters()); ?>
 </body>
 
 </html>
