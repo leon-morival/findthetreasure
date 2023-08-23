@@ -33,15 +33,12 @@ if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
 
-    foreach ($monster->getMonsters() as $key => $monster) {
-        if ($player->getPositionX() == $monster['positionX'] && $player->getPositionY() == $monster['positionY']) {
-            // Commencez le combat entre le joueur et le monstre
-            $result = $fight->startFight($player, $monster);
-
-            // Vous pouvez traiter le résultat du combat ici, comme ajuster les points de vie du joueur et du monstre, etc.
-
-            // Retirez le monstre de la liste s'il a été vaincu ou autre action nécessaire
-            unset($_SESSION['monsters'][$key]);
+    foreach ($monster->getMonsters() as $key => $monsterData) {
+        if ($playerX == $monsterData['positionX'] && $playerY == $monsterData['positionY']) {
+            $result = $fight->startFight($player, $monsterData);
+            echo "<pre>mONSTRE Trouver</pre>";
+            // Remove the defeated monster from the session array
+            unset($_SESSION['monsterArray'][$key]);
         }
     }
 } elseif (isset($_GET['reset']) && $_GET['reset'] === 'true') {
