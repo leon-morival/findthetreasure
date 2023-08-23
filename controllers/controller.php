@@ -17,17 +17,16 @@ if (isset($_GET['direction'])) {
     // Imprimez le tableau de monstres pour vérifier
 
 
-}
-if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
+} elseif (isset($_GET['reset']) && $_GET['reset'] === 'true') {
     // Reset the game by generating new values and clearing the session data
-    $player = new Player();
-    $monster = new Monster();
-    $chest = new Chest();
+    // $player = new Player();
+    // $monster = new Monster();
+    // $chest = new Chest();
 
     session_unset(); // Clear all session variables
     session_destroy(); // Destroy the session
     session_start(); // Start a new session
-
+    header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
 
