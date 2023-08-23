@@ -1,46 +1,36 @@
 <?php
 session_start();
 require_once '../models/Player.php';
-
+require_once '../models/Monster.php';
+$monster = new Monster();
 $player = new Player();
 $chest = new Chest();
+$monster->getMonsters();
+var_dump($monster->getMonsters());
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
+
+
+
     // Imprimez le tableau de monstres pour vérifier
-    
+
+
+}
+if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
+    // Reset the game by generating new values and clearing the session data
+    $player = new Player();
+    $monster = new Monster();
+    $chest = new Chest();
+
+    session_unset(); // Clear all session variables
+    session_destroy(); // Destroy the session
+    session_start(); // Start a new session
 
 }
 
 
-function generateMonsters($numberOfMonsters)
-{
-    $monsters = array();
-
-    // Générer toutes les positions possibles
-    $allPositions = array();
-    for ($x = 0; $x <= 20; $x++) {
-        for ($y = 0; $y <= 20; $y++) {
-            $allPositions[] = array($x, $y);
-        }
-    }
-
-    // Mélanger aléatoirement les positions
-    shuffle($allPositions);
-
-    // Attribuer les positions aux monstres
-    for ($i = 0; $i < $numberOfMonsters; $i++) {
-        $position = array_shift($allPositions);
-        $positionX = $position[0];
-        $positionY = $position[1];
-
-        $monster = new Monster($positionX, $positionY);
-        $monsters[] = $monster;
-    }
-
-    return $monsters;
-}
 
 
 

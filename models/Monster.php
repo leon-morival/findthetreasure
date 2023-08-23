@@ -1,37 +1,64 @@
 <?php
-
 class Monster
 {
+    private $arraySize;
+    private $monsterArray = [];
     private $pv;
     private $force;
-    private $positionX;
-    private $positionY;
+    private $x;
+    private $y;
 
-    public function __construct($x, $y)
+    public function __construct()
     {
-        $this->pv = rand(0, 10);
-        $this->force = rand(0, 20);
-        $this->positionX = $x;
-        $this->positionY = $y;
+        $this->arraySize = rand(0, 10);
+        $this->retrieveMonsters();
+        $this->pv;
+        $this->force;
+        $this->x;
+        $this->y;
     }
 
-    public function getPV()
+    private function generateMonsters()
     {
-        return $this->pv;
+        while (count($this->monsterArray) < $this->arraySize) {
+            $this->x = rand(0, 20);
+            $this->y = rand(0, 20);
+            $this->pv = rand(20, 50);
+            $this->force = rand(30, 40);
+            $point = ["positionX" => $this->x, "positionY" => $this->y, "PV" => $this->pv, "Force" => $this->force];
+
+            if (!$this->isDuplicate($point)) {
+                $this->monsterArray[] = $point;
+            }
+        }
     }
 
-    public function getForce()
+    private function isDuplicate($point)
     {
-        return $this->force;
+        foreach ($this->monsterArray as $existingPoint) {
+            if ($existingPoint === $point) {
+                return true;
+            }
+        }
+        return false;
     }
-
-    public function getPositionX()
+    private function retrieveMonsters()
     {
-        return $this->positionX;
+        if (isset($_SESSION['monsterArray'])) {
+            $this->monsterArray = $_SESSION['monsterArray'];
+        } else {
+            $this->generateMonsters();
+            $_SESSION['monsterArray'] = $this->monsterArray;
+        }
     }
-
-    public function getPositionY()
+    public function getMonsters()
     {
-        return $this->positionY;
+        return $this->monsterArray;
     }
 }
+
+// Usage
+// You can change this to the desired array size
+
+
+// Print the generated points
