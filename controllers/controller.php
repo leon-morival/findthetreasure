@@ -30,7 +30,28 @@ function findChest()
         echo "chest position : " . $chestX . ' ' . $chestY;
     } else {
         echo "Keep exploring...";
+        $direction = (int)$_GET['direction'];
+        showDirection($direction);
     }
+}
+
+function showDirection($direction) {
+switch ($direction) {
+    case 0:
+        echo '<br> Le joueur s\'est déplacé vers le haut';
+        break;
+    case 1:
+        echo '<br>Le joueur s\'est déplacé vers la droite';
+        break;
+    case 2:
+        echo '<br>Le joueur s\'est déplacé vers le bas';
+        break;
+    case 3:
+        echo '<br>Le joueur s\'est déplacé vers la gauche';
+        break;
+    default:
+        echo '<br>Le joueur stagne';
+}
 }
 
 
@@ -39,7 +60,6 @@ $fight = new Fight();
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
-
     foreach ($monster->getMonsters() as $key => $monster) {
         if ($player->getPositionX() == $monster['positionX'] && $player->getPositionY() == $monster['positionY']) {
             // Commencez le combat entre le joueur et le monstre
