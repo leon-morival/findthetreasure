@@ -15,21 +15,21 @@ $chestX = $chest->getPositionX();
 $chestY = $chest->getPositionY();
 
 // Compare positions and display message if they are the same
-
+// header('Location: ' . $_SERVER['PHP_SELF']);
+if ($playerX === $chestX && $playerY === $chestY) {
+    echo "Congratulations! You found the chest!";
+    echo "player position : " . $playerX . ' ' . $playerY;
+    echo '<br>';
+    echo "chest position : " . $chestX . ' ' . $chestY;
+} else {
+    echo "Keep exploring...";
+}
 
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
 
-    if ($playerX === $chestX && $playerY === $chestY) {
-        echo "Congratulations! You found the chest!";
-        echo "player position : " . $playerX . ' ' . $playerY;
-        echo '<br>';
-        echo "chest position : " . $chestX . ' ' . $chestY;
-    } else {
-        echo "Keep exploring...";
-    }
 
 
     // Imprimez le tableau de monstres pour vérifier
