@@ -23,8 +23,8 @@ class Monster
         while (count($this->monsterArray) < $this->arraySize) {
             $this->x = rand(0, 20);
             $this->y = rand(0, 20);
-            $this->pv = rand(20, 50);
-            $this->force = rand(30, 40);
+            $this->pv = rand(60, 80);
+            $this->force = rand(50, 100);
             $point = ["positionX" => $this->x, "positionY" => $this->y, "PV" => $this->pv, "Force" => $this->force];
 
             if (!$this->isDuplicate($point)) {

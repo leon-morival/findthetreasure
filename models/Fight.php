@@ -16,28 +16,39 @@ class Fight
             'pv' => $monster['PV'],
             'force' => $monster['Force']
         );
+        $playerPv = $player->getPv();
+        $monsterPower = $fightResults['monster']['force'];
 
-        // Player attacks first
-        // Monster loses HP equal to player's power
+        while ($player->getPV() > 0 && $fightResults['monster']['pv'] > 0) {
+            // Player attacks
 
-        // Check if monster is defeated
-        if ($fightResults['monster']['pv'] <= 0) {
-            echo 'Vous avez gagné !';
-            // Remove the monster from the monsters array
-            $monsters = $_SESSION['monsterArray'];
-            $indexToRemove = array_search($monster, $monsters);
-            if ($indexToRemove !== false) {
-                unset($monsters[$indexToRemove]);
-            }
-            $_SESSION['monsterArray'] = $monsters;
-        } else {
-            // Monster attacks if it's not defeated
-            $player->setPV($player->getPV() - $fightResults['monster']['force']); // Player loses HP equal to monster's force
-        }
-        while ($fightResults['monster']['pv'] <= 0 || $player->getPV() <= 0) {
             $fightResults['monster']['pv'] -= $player->getPower();
-        }
+            echo     $fightResults['monster']['pv'];
+            // Check if monster is defeated
+            if ($fightResults['monster']['pv'] <= 0) {
+                $player->setPv($playerPv);
+                echo 'Vous avez gagné !';
+                // Remove the monster from the monsters array
+                $monsters = $_SESSION['monsterArray'];
+                $indexToRemove = array_search($monster, $monsters);
+                if ($indexToRemove !== false) {
+                    unset($monsters[$indexToRemove]);
+                }
 
-        return $fightResults;
+                $_SESSION['monsterArray'] = $monsters;
+                // Player regains all HP
+                $player->setPV($player->getPV($playerPv));
+                // Increase player's XP
+                $player->setXp($player->getXp() + $monsterPower);
+            } else {
+
+                // Monster attacks if it's not defeated
+                $player->setPV($player->getPV() - $fightResults['monster']['force']); // Player loses HP equal to monster's force
+            }
+            if ($player->getPV() <= 0) {
+                $player->setPv(0);
+                echo "you lose";
+            }
+        }
     }
 }

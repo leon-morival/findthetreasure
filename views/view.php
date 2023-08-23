@@ -140,7 +140,7 @@ $chest = new Chest();
     <!-- <div style="text-align: center; padding-top: 20px;">
         <img src="../public/assets/footer.jpg" alt="Logo">
     </div> -->
-    <?php var_dump($monster->getMonsters()); ?>
+
     <?php ?>
 </body>
 
