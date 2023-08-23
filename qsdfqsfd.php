@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIND THE TREASURE</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
+    <?php
+    require './classes/Player.php';
+
+    ?>
     <div style="text-align: center;">
-        <img src="./public/assets/bandeau.jpg" alt="Logo">
+        <a href="/"><img src="bandeau.jpg" alt="Logo"></a>
     </div>
     <div class="container">
         <div class="header">
-            <h1 class="text-primary" style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
-            <hr class="border border-primary border-3 opacity-75">
+            <h1 style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
         </div>
         <p>Plongez au cœur d'une aventure épique dans un monde mystérieux et dangereux. Une légende ancienne parle d'un
             trésor caché quelque part sur cette terre maudite. Mais ce n'est pas aussi simple que de suivre une carte au
@@ -31,19 +35,19 @@
             trésor et du monde repose entre vos mains.</p>
     </div>
     <div style="text-align: center;">
-        <button onclick="startGame()">Commencer une partie</button>
+        <button class="btn btn-primary" onclick="startGame()">Commencer une partie</button>
     </div>
+
+    <!-- Redirige vers la page game.php -->
     <script>
-        function startGame() {
-            window.location.href = './views/view.php'; // Redirige vers la page game.php
-            window.location.href = './views/view.php'; // Redirige vers la page game.php
-        }
+    function startGame() {
+        window.location.href = 'game.php';
+    }
     </script>
     <div id="contenu">
     </div>
     <div style="text-align: center; padding-top: 20px;">
-        <img src="./public/assets/footer.jpg" alt="Logo">
-        <img src="./public/assets/footer.jpg" alt="Logo">
+        <img src="footer.jpg" alt="Logo">
     </div>
 </body>
 
