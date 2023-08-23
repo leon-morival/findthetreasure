@@ -80,6 +80,11 @@ class Player
     {
         return $this->power;
     }
+
+    function getXp()
+    {
+        return $this->xp;
+    }
 }
 
 // Usage

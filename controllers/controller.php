@@ -39,6 +39,7 @@ if (isset($_GET['direction'])) {
 
             // Vous pouvez traiter le résultat du combat ici, comme ajuster les points de vie du joueur et du monstre, etc.
 
+
             // Retirez le monstre de la liste s'il a été vaincu ou autre action nécessaire
             unset($_SESSION['monsters'][$key]);
         }

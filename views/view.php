@@ -123,6 +123,7 @@ $chest = new Chest();
         <img src="../public/assets/footer.jpg" alt="Logo">
     </div>
 <?php var_dump($monster->getMonsters()); ?>
+<?php ?>
 </body>
 
 </html>

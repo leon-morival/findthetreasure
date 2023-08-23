@@ -14,7 +14,8 @@ class Fight
         // Ajoutez les valeurs du joueur et du monstre dans le tableau $fightResults
         $fightResults['player'] = array(
             'pv' => $player->getPV(),
-            'force' => $player->getPower()
+            'force' => $player->getPower(),
+            'xp' => $player->getXp(),
         );
 
         $fightResults['monster'] = array(
@@ -23,7 +24,7 @@ class Fight
         );
 
         if ($fightResults['player']['force'] > $fightResults['monster']['pv']) {
-            echo 'Le joueur a gagné !';
+            echo 'Vous avez gagné !';
             // Retirez le monstre du tableau de monstres
             $monsters = $_SESSION['monsterArray'];
             $indexToRemove = array_search($monster, $monsters);
@@ -31,8 +32,14 @@ class Fight
                 unset($monsters[$indexToRemove]);
             }
             $_SESSION['monsterArray'] = $monsters;
+            $fightResults['player']['xp'] += $fightResults['monster']['pv'];
+
+
+
+            echo $fightResults['player']['xp'];
         }
         return $fightResults;
+
     }
 
 
