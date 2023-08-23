@@ -31,7 +31,7 @@
             trésor et du monde repose entre vos mains.</p>
     </div>
     <div style="text-align: center;">
-        <button onclick="startGame()">Commencer une partie</button>
+        <button class="btn btn-primary" onclick="startGame()">Commencer une partie</button>
     </div>
     <script>
         function startGame() {
