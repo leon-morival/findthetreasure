@@ -7,7 +7,7 @@ $player = new Player();
 $chest = new Chest();
 
 $monster->getMonsters();
-
+// var_dump($monster->getMonsters());
 $playerX = $player->getPositionX();
 $playerY = $player->getPositionY();
 
