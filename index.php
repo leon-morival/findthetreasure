@@ -43,7 +43,6 @@
     </div>
     <div style="text-align: center; padding-top: 20px;">
         <img src="./public/assets/footer.jpg" alt="Logo">
-        <img src="./public/assets/footer.jpg" alt="Logo">
     </div>
 </body>
 
