@@ -1,4 +1,12 @@
-<?php require_once '../controllers/controller.php'; ?>
+<?php require_once '../controllers/controller.php';
+require_once '../models/Player.php';
+require_once '../models/Monster.php';
+require_once '../models/Chest.php';
+
+$player = new Player();
+$monster = new Monster();
+$chest = new Chest();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -32,8 +32,6 @@ class Fight
             }
             $_SESSION['monsterArray'] = $monsters;
         }
-
-        var_dump($fightResults);
         return $fightResults;
     }
 
