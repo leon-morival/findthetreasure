@@ -14,10 +14,28 @@
     <link rel="stylesheet" href="../public\css\style.css">
 </head>
 
-<body>
+<body class="m-4">
 
-    <div style="text-align: center;">
-        <a href="../index.php"><img src="../public/assets/bandeau.jpg" alt="Logo"></a>
+    <div class="row">
+        <div class="col-2 border border-rounded p-3">
+            <?= findChest() ?>
+        </div>
+        <div class="col-8">
+            <div class="text-center">
+
+                <a href="../index.php"><img src="../public/assets/bandeau.jpg" alt="Logo" class="w-100"></a>
+            </div>
+        </div>
+        <div class="col-2  p-3 text-center">
+
+            <i class="fa-solid fa-heart fa-2x" style="color: red;">&nbsp;<?= $player->getPV() ?></i>
+            <br>
+            <br>
+            <i class="fa-solid fa-bolt fa-2x" style="color: orange;">&nbsp;<?= $player->getPower() ?></i>
+            <br>
+
+            <h1 style="color: blue;">XP <?= $player->getXp() ?></h1>
+        </div>
     </div>
     <div class="container text-center">
         <div class="header">

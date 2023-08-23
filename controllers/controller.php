@@ -17,14 +17,22 @@ $chestY = $chest->getPositionY();
 
 // Compare positions and display message if they are the same
 // header('Location: ' . $_SERVER['PHP_SELF']);
-if ($playerX === $chestX && $playerY === $chestY) {
-    echo "Congratulations! You found the chest!";
-    echo "player position : " . $playerX . ' ' . $playerY;
-    echo '<br>';
-    echo "chest position : " . $chestX . ' ' . $chestY;
-} else {
-    echo "Keep exploring...";
+function findChest()
+{
+    global $playerX;
+    global $playerY;
+    global $chestX;
+    global $chestY;
+    if ($playerX === $chestX && $playerY === $chestY) {
+        echo "Congratulations! You found the chest!";
+        echo "player position : " . $playerX . ' ' . $playerY;
+        echo '<br>';
+        echo "chest position : " . $chestX . ' ' . $chestY;
+    } else {
+        echo "Keep exploring...";
+    }
 }
+
 
 $fight = new Fight();
 

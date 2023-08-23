@@ -14,23 +14,27 @@ class Player
 
     public function __construct()
     {
-
-        $this->positionX = rand(0, 20);
-        $this->positionY = rand(0, 20);
         if (isset($_SESSION['playerPositionX'])) {
             $this->positionX = $_SESSION['playerPositionX'];
             $this->positionY = $_SESSION['playerPositionY'];
+            $this->xp = $_SESSION['playerXp'];
+            $this->power = $_SESSION['playerPower'];
+            $this->pv = $_SESSION['playerPv'];
         } else {
             // Set initial position
             $this->positionX = rand(0, 20);
             $this->positionY = rand(0, 20);
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
+            $this->xp = 0;  // Assign initial XP
+            $this->power = rand(50, 100);
+            $this->pv = rand(50, 100);
+            $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
+            $_SESSION['playerPower'] = $this->power;
+            $_SESSION['playerPv'] = $this->pv;
         }
-        $this->xp = 0;
-        $this->power = rand(50, 100);
-        $this->pv = rand(50, 100);
     }
+
 
 
     public function move($direction)
@@ -61,6 +65,9 @@ class Player
         }
         $_SESSION['playerPositionX'] = $this->positionX;
         $_SESSION['playerPositionY'] = $this->positionY;
+        $_SESSION['playerXp'] = $this->xp;
+        $_SESSION['playerPower'] = $this->power;
+        $_SESSION['playerPv'] = $this->pv;
     }
 
     function getPositionX()
@@ -80,6 +87,10 @@ class Player
     function getPower()
     {
         return $this->power;
+    }
+    function getXp()
+    {
+        return $this->xp;
     }
 }
 
