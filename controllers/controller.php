@@ -27,9 +27,7 @@ if ($playerX === $chestX && $playerY === $chestY) {
 }
 
 $fight = new Fight();
-echo '<pre>les monstres sur la map :';
-var_dump($monster->getMonsters());
-echo '</pre>';
+
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
@@ -46,25 +44,12 @@ if (isset($_GET['direction'])) {
             unset($_SESSION['monsters'][$key]);
         }
     }
-
-
-    // Imprimez le tableau de monstres pour vérifier
-
-
 } elseif (isset($_GET['reset']) && $_GET['reset'] === 'true') {
-    // Reset the game by generating new values and clearing the session data
-    // $player = new Player();
-    // $monster = new Monster();
-    // $chest = new Chest();
-
     session_unset(); // Clear all session variables
     session_destroy(); // Destroy the session
     session_start(); // Start a new session
     header('Location: ' . $_SERVER['PHP_SELF']);
 }
-
-// var_dump($monster->getMonsters());
-
 
 
 
