@@ -6,10 +6,27 @@ require_once '../models/Fight.php';
 $monster = new Monster();
 $player = new Player();
 $chest = new Chest();
+
+$monster->getMonsters();
+// var_dump($monster->getMonsters());
+$playerX = $player->getPositionX();
+$playerY = $player->getPositionY();
+
+$chestX = $chest->getPositionX();
+$chestY = $chest->getPositionY();
+
+// Compare positions and display message if they are the same
+// header('Location: ' . $_SERVER['PHP_SELF']);
+if ($playerX === $chestX && $playerY === $chestY) {
+    echo "Congratulations! You found the chest!";
+    echo "player position : " . $playerX . ' ' . $playerY;
+    echo '<br>';
+    echo "chest position : " . $chestX . ' ' . $chestY;
+} else {
+    echo "Keep exploring...";
+}
+
 $fight = new Fight();
-echo '<pre>les monstres sur la map :';
-var_dump($monster->getMonsters());
-echo '</pre>';
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
@@ -22,29 +39,17 @@ if (isset($_GET['direction'])) {
 
             // Vous pouvez traiter le résultat du combat ici, comme ajuster les points de vie du joueur et du monstre, etc.
 
+
             // Retirez le monstre de la liste s'il a été vaincu ou autre action nécessaire
             unset($_SESSION['monsters'][$key]);
         }
     }
-
-
-    // Imprimez le tableau de monstres pour vérifier
-
-
-}
-if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
-    // Reset the game by generating new values and clearing the session data
-    $player = new Player();
-    $monster = new Monster();
-    $chest = new Chest();
-
+} elseif (isset($_GET['reset']) && $_GET['reset'] === 'true') {
     session_unset(); // Clear all session variables
     session_destroy(); // Destroy the session
     session_start(); // Start a new session
-
+    header('Location: ' . $_SERVER['PHP_SELF']);
 }
-
-
 
 
 

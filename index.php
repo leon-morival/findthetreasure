@@ -14,7 +14,8 @@
     </div>
     <div class="container">
         <div class="header">
-            <h1 style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
+            <h1 class="text-primary" style="padding-top: 20px; text-align: center;">Find the Treasure</h1>
+            <hr class="border border-primary border-3 opacity-75">
         </div>
         <p>Plongez au cœur d'une aventure épique dans un monde mystérieux et dangereux. Une légende ancienne parle d'un
             trésor caché quelque part sur cette terre maudite. Mais ce n'est pas aussi simple que de suivre une carte au
@@ -35,11 +36,13 @@
     <script>
         function startGame() {
             window.location.href = './views/view.php'; // Redirige vers la page game.php
+            window.location.href = './views/view.php'; // Redirige vers la page game.php
         }
     </script>
     <div id="contenu">
     </div>
     <div style="text-align: center; padding-top: 20px;">
+        <img src="./public/assets/footer.jpg" alt="Logo">
         <img src="./public/assets/footer.jpg" alt="Logo">
     </div>
 </body>
