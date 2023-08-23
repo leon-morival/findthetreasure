@@ -83,6 +83,16 @@ class Player
     {
         return $this->pv;
     }
+    function setPV($newPv)
+    {
+        $this->pv = $newPv;
+        $_SESSION['playerPv'] = $this->pv;
+    }
+    function setXp($newXp)
+    {
+        $this->xp = $newXp;
+        $_SESSION['playerXp'] = $this->xp;
+    }
     function getPower()
     {
         return $this->power;
