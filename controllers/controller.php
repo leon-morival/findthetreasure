@@ -2,16 +2,30 @@
 session_start();
 require_once '../models/Player.php';
 require_once '../models/Monster.php';
+require_once '../models/Fight.php';
 $monster = new Monster();
 $player = new Player();
 $chest = new Chest();
-$monster->getMonsters();
+$fight = new Fight();
+echo '<pre>les monstres sur la map :';
 var_dump($monster->getMonsters());
+echo '</pre>';
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
 
+    foreach ($monster->getMonsters() as $key => $monster) {
+        if ($player->getPositionX() == $monster['positionX'] && $player->getPositionY() == $monster['positionY']) {
+            // Commencez le combat entre le joueur et le monstre
+            $result = $fight->startFight($player, $monster);
+
+            // Vous pouvez traiter le résultat du combat ici, comme ajuster les points de vie du joueur et du monstre, etc.
+
+            // Retirez le monstre de la liste s'il a été vaincu ou autre action nécessaire
+            unset($_SESSION['monsters'][$key]);
+        }
+    }
 
 
     // Imprimez le tableau de monstres pour vérifier
