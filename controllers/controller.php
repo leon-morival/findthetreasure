@@ -5,6 +5,7 @@ require_once '../models/Monster.php';
 $monster = new Monster();
 $player = new Player();
 $chest = new Chest();
+
 $monster->getMonsters();
 
 $playerX = $player->getPositionX();
