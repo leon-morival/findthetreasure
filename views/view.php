@@ -88,11 +88,9 @@
 
             <!-- Player movement buttons -->
             <div class="col-md-3" style="right:90px;">
-                <p>Position du joueur : (<?php echo $player->getPositionX(); ?>, <?php echo $player->getPositionY(); ?>)
-                </p>
+                <p>Position du joueur : (<?php echo $player->getPositionX(); ?>, <?php echo $player->getPositionY(); ?>)</p>
 
-                <p>Position du coffre : (<?php echo $chest->getPositionX(); ?>, <?php echo $chest->getPositionY(); ?>)
-                </p>
+                <p>Position du coffre : (<?php echo $chest->getPositionX(); ?>, <?php echo $chest->getPositionY(); ?>)</p>
 
                 <p>Déplacez-vous</p>
                 <div class="w-100 mx-auto text-center">
