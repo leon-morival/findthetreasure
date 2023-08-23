@@ -66,7 +66,7 @@ $chest = new Chest();
 
                             // Check if the current position contains the player, monster, or chest
                             if ($player->getPositionX() === $col && $player->getPositionY() === $row) {
-                                echo ' player">P';
+                                echo ' player"><img src="../public/assets/sword_player.png">';
                             } elseif ($chest->getPositionX() === $col && $chest->getPositionY() === $row) {
                                 echo ' chest">C';
                             } else {
