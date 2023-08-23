@@ -63,9 +63,9 @@
                     // Assuming $player, $monster, and $chest are already initialized
 
                     // Create a 20x20 game board
-                    $boardSize = 20;
-                    for ($row = 0; $row < $boardSize; $row++) {
-                        for ($col = 0; $col < $boardSize; $col++) {
+                    $boardSize = 21;
+                    for ($row = 1; $row < $boardSize; $row++) {
+                        for ($col = 1; $col < $boardSize; $col++) {
                             echo '<div class="cell';
 
                             // Check if the current position contains the player, monster, or chest
@@ -99,7 +99,7 @@
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=2"><i class="fa-solid fa-arrow-up fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=0"><i class="fa-solid fa-arrow-up fa-3x"></i></a>
                         </div>
                         <div class="col-4"></div>
                     </div>
@@ -115,7 +115,7 @@
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=0"><i class="fa-solid fa-arrow-down fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=2"><i class="fa-solid fa-arrow-down fa-3x"></i></a>
                         </div>
                         <div class="col-4"></div>
                     </div>

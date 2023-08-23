@@ -27,10 +27,9 @@ class Player
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
         }
-         $this->xp = 0;
-         $this->power = rand(50, 100);
-         $this->pv = rand(50,100);
-
+        $this->xp = 0;
+        $this->power = rand(50, 100);
+        $this->pv = rand(50, 100);
     }
 
 
@@ -39,8 +38,8 @@ class Player
         switch ($direction) {
             case 0:
 
-                if ($this->positionY < 20) {
-                    $this->positionY++;
+                if ($this->positionY > 1) {
+                    $this->positionY--;
                 }
 
                 break;
@@ -50,12 +49,12 @@ class Player
                 }
                 break;
             case 2:
-                if ($this->positionY > 0) {
-                    $this->positionY--;
+                if ($this->positionY < 20) {
+                    $this->positionY++;
                 }
                 break;
             case 3:
-                if ($this->positionX > 0) {
+                if ($this->positionX > 1) {
                     $this->positionX--;
                 }
                 break;
@@ -82,7 +81,6 @@ class Player
     {
         return $this->power;
     }
-
 }
 
 // Usage
