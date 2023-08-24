@@ -12,7 +12,7 @@ class Player
     private $power;
     private $user;
     private $pv;
-
+    private $win;
 
     public function __construct($user)
     {
@@ -26,6 +26,7 @@ class Player
             $this->power = $_SESSION['playerPower'];
             $this->pv = $_SESSION['playerPv'];
             $this->user = $_SESSION['user'];
+            $this->win = $_SESSION['win'];
         } else {
             // Set initial position
             $this->positionX = rand(1, 20);
@@ -35,9 +36,11 @@ class Player
             $this->xp = 0;  // Assign initial XP
             $this->power = 70;
             $this->pv = 100;
+            $this->win = false;
             $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
             $_SESSION['playerPower'] = $this->power;
             $_SESSION['playerPv'] = $this->pv;
+            $_SESSION['win'] = $this->win;
             $_SESSION['user'] = $user;
         }
     }
@@ -105,6 +108,11 @@ class Player
         $this->xp = $newXp;
         $_SESSION['playerXp'] = $this->xp;
     }
+    function setWin($winner)
+    {
+        $this->win = $winner;
+        $_SESSION['win'] = $this->win;
+    }
     function getPower()
     {
         return $this->power;
@@ -112,6 +120,10 @@ class Player
     function getXp()
     {
         return $this->xp;
+    }
+    function getWin()
+    {
+        return $this->win;
     }
 }
 

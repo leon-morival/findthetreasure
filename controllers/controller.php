@@ -40,19 +40,20 @@ function findChest()
     global $playerXp;
     global $user;
     global $conn;
+    global $player;
 
     if (isset($_GET['direction'])) {
         $direction = (int)$_GET['direction'];
         showDirection($direction);
     }
     if ($playerX === $chestX && $playerY === $chestY) {
+        $player->setWin(true);
 
 
-        $playerXp = $playerXp * 2;
         $sql = "INSERT INTO score  (username, score) VALUES ('$user','$playerXp')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
-        header("Location: /findthetreaser/");
+        header("Location: /findthetreaser/views/win.php");
     }
 }
 
