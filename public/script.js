@@ -8,16 +8,16 @@ document.addEventListener("keydown", function (event) {
   let direction = null;
   console.log(event);
   switch (event.key) {
-    case "ArrowUp":
+    case "ArrowUp" || "KeyZ":
       direction = 0;
       break;
-    case "ArrowRight":
+    case "ArrowRight" || "KeyD":
       direction = 1;
       break;
-    case "ArrowDown":
+    case "ArrowDown" || "KeyS":
       direction = 2;
       break;
-    case "ArrowLeft":
+    case "ArrowLeft" || "KeyQ":
       direction = 3;
       break;
   }
