@@ -32,11 +32,12 @@ class Fight
                 unset($monsters[$indexToRemove]);
             }
             $_SESSION['monsterArray'] = $monsters;
-            $fightResults['player']['xp'] += $fightResults['monster']['pv'];
+            foreach($_SESSION['monsterArray'] as $monster) {
+                $fightResults['player']['xp'] += $fightResults['monster']['pv'];
+                var_dump(  $fightResults['player']['xp']);
+            }
+            
 
-
-
-            echo $fightResults['player']['xp'];
         }
         return $fightResults;
 

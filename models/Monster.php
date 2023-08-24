@@ -55,6 +55,13 @@ class Monster
     {
         return $this->monsterArray;
     }
+
+    public function getPV()
+    {
+        return  $this->pv;;
+    }
+
+
 }
 
 // Usage
