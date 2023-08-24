@@ -31,7 +31,7 @@ class Fight
             if ($fightResults['monster']['pv'] <= 0) {
                 $player->setPv($playerPv);
 
-                echo 'Vous avez gagné !';
+
 
                 // Remove the monster from the monsters array
                 $monsters = $_SESSION['monsterArray'];

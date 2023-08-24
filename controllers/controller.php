@@ -47,12 +47,12 @@ function findChest()
     }
     if ($playerX === $chestX && $playerY === $chestY) {
 
+
         $playerXp = $playerXp * 2;
         $sql = "INSERT INTO score  (username, score) VALUES ('$user','$playerXp')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
-        header('Location: /findthetreaser');
-        echo "<strong>Félicitations vous avez trouvez le trésor</strong>";
+        header("Location: /findthetreaser/");
     }
 }
 

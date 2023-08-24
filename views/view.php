@@ -52,7 +52,7 @@ $chest = new Chest();
                             if ($player->getPositionX() === $col && $player->getPositionY() === $row) {
                                 echo ' player"><img src="../public/assets/sword_player.png">';
                             } elseif ($chest->getPositionX() === $col && $chest->getPositionY() === $row) {
-                                echo ' chest"><img src="../public/assets/golden_treasure.png" style="display: none">';
+                                echo ' chest"><img src="../public/assets/golden_treasure.png"" style="display:none;>';
                             } else {
                                 $isMonsterHere = false;
                                 foreach ($monster->getMonsters() as $monsterData) {
@@ -62,7 +62,7 @@ $chest = new Chest();
                                     }
                                 }
                                 if ($isMonsterHere) {
-                                    echo ' monster"><img src="../public/assets/monster.png" style="display: none">';
+                                    echo ' monster"><img src="../public/assets/monster.png""style: display:none;>';
                                 } else {
                                     echo '">';
                                 }
@@ -128,6 +128,17 @@ $chest = new Chest();
 
         </div>
     </div>
+    <!-- Inside your modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Modal content...</p>
+            <button id="redirectButton">Continue</button>
+        </div>
+    </div>
+    <script>
+
+    </script>
     <!-- <div style="text-align: center; padding-top: 20px;">
         <img src="../public/assets/footer.jpg" alt="Logo">
     </div> -->

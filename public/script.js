@@ -1,7 +1,8 @@
-function showModal(message) {
+function redirect() {
+  console.log("es");
   // Display the modal with the given message
   // You can use libraries like Bootstrap or your custom modal implementation
-  alert(message); // Replace this with your modal code
+  alert("test"); // Replace this with your modal code
 }
 // script.js
 document.addEventListener("keydown", function (event) {
