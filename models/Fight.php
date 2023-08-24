@@ -3,10 +3,6 @@ require_once "Player.php";
 
 class Fight
 {
-    public function __construct()
-    {
-    }
-
     public function startFight($player, $monster)
     {
         $fightResults = array();
