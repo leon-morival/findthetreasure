@@ -16,16 +16,16 @@
 }
 
 .player {
-  background-color: green;
+  background-color: white;
   color: white;
 }
 
 .monster {
-  background-color: red;
+  background-color: white;
   color: white;
 }
 
 .chest {
-  background-color: blue;
+  background-color: white;
   color: white;
 }
