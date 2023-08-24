@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lose</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -68,11 +72,20 @@
                             $position += 1; // Increment position
 
                         ?>
-                            <tr>
-                                <td><?php echo $position; ?></td>
-                                <td><?php echo $row['username'] ?></td>
-                                <td><?php echo $row['score'] ?></td>
-                            </tr>
+                        <tr>
+                            <td><?php echo $position; ?></td>
+                            <td>
+                                <?php
+
+                                    // If the user is the first in the table, display a crown icon
+                                    if ($position === 1) {
+                                        echo '<i class="fas fa-crown text-warning ml-1"></i> ';
+                                    }
+                                    echo $row['username'];
+                                    ?>
+                            </td>
+                            <td><?php echo $row['score'] ?></td>
+                        </tr>
                         <?php
                         }
                         ?>
