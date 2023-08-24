@@ -63,20 +63,6 @@ class Fight
                 header("Location: /findthetreaser/views/win.php");
                 // die();
             }
-            if ($fightResults['player']['force'] > $fightResults['monster']['pv']) {
-                echo 'Vous avez gagné !';
-                // Retirez le monstre du tableau de monstres
-                $monsters = $_SESSION['monsterArray'];
-                $indexToRemove = array_search($monster, $monsters);
-                if ($indexToRemove !== false) {
-                    unset($monsters[$indexToRemove]);
-                }
-                $_SESSION['monsterArray'] = $monsters;
-                foreach ($_SESSION['monsterArray'] as $monster) {
-                    $fightResults['player']['xp'] += $fightResults['monster']['pv'];
-                    var_dump($fightResults['player']['xp']);
-                }
-            }
         }
     }
 }

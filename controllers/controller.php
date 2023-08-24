@@ -83,7 +83,7 @@ function showDirection($direction)
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
-    findChest();
+
     foreach ($monster->getMonsters() as $key => $monster) {
         if ($player->getPositionX() == $monster['positionX'] && $player->getPositionY() == $monster['positionY']) {
             // Commencez le combat entre le joueur et le monstre
