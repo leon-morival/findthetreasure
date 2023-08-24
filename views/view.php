@@ -102,11 +102,10 @@ $chest = new Chest();
                         <div class="col-4"></div>
                     </div>
                     <!-- Reset button -->
-                    <div class="w-100 mx-auto text-center mt-3">
-                        <a class="btn btn-danger" href="../controllers/controller.php?reset=true">Nouvelle Partie</a>
-                    </div>
+
                     <div class="row"></div>
                 </div>
+                <p>Vos caractéristiques :</p>
                 <div>
                     <div class="col-md-12 text-center mt-4" id="carac">
                         <i class="fa-solid fa-heart fa-2x" style="color: red;">&nbsp;<?= $player->getPV() ?></i>
@@ -122,9 +121,9 @@ $chest = new Chest();
                 <div class="border border-rounded p-3" style="width: 100%;">
                     <?= findChest() ?>
                 </div>
-                <div class="w-100 mx-auto text-center mt-3">
-                    <a class="btn btn-primary" href="../index.php">Retour à l'accueil</a>
-                </div>
+                    <div class="w-100 mx-auto text-center mt-3">
+                        <a class="btn btn-danger" href="../controllers/controller.php?reset=true">Nouvelle Partie</a>
+                    </div>
             </div>
 
         </div>
@@ -141,5 +140,7 @@ $chest = new Chest();
 
     </div>
     <br />
+
 </body>
+
 </html>
