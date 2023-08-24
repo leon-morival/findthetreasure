@@ -17,7 +17,7 @@ $chest = new Chest();
     <title>Monster Game</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../public\css\style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 
 </head>
 
@@ -28,21 +28,9 @@ $chest = new Chest();
 
         </div>
         <div class="col-6">
-            <div class="text-center">
-
+            <!-- <div class="text-center">
                 <a href="../index.php"><img src="../public/assets/bandeau.jpg" alt="Logo" style="width: 100%;"></a>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="col-md-12 text-center mt-4" id="carac">
-                <i class="fa-solid fa-heart fa-2x" style="color: red;">&nbsp;<?= $player->getPV() ?></i>
-                <br />
-                <br />
-                <i class="fa-solid fa-bolt fa-2x" style="color: orange;">&nbsp;<?= $player->getPower() ?></i>
-                <br />
-                <br />
-                <i class="fa-solid fa-2x" style="color: blue;">XP&nbsp;<?= $player->getXp() ?></i>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -87,10 +75,7 @@ $chest = new Chest();
             </div>
 
             <div class="col-md-3" style="right: 90px;">
-                <p>Position du joueur : (<?php echo $player->getPositionX(); ?>, <?php echo $player->getPositionY(); ?>)
-                </p>
-                <p>Position du coffre : (<?php echo $chest->getPositionX(); ?>, <?php echo $chest->getPositionY(); ?>)
-                </p>
+
                 <p>Déplacez-vous sur la carte :</p>
                 <div class="w-100 mx-auto text-center">
                     <div class="row">
@@ -120,12 +105,28 @@ $chest = new Chest();
                     <div class="w-100 mx-auto text-center mt-3">
                         <a class="btn btn-danger" href="../controllers/controller.php?reset=true">Nouvelle Partie</a>
                     </div>
-                    <div class="row">
-
+                    <div class="row"></div>
+                </div>
+                <div>
+                    <div class="col-md-12 text-center mt-4" id="carac">
+                        <i class="fa-solid fa-heart fa-2x" style="color: red;">&nbsp;<?= $player->getPV() ?></i>
+                        <br />
+                        <br />
+                        <i class="fa-solid fa-bolt fa-2x" style="color: orange;">&nbsp;<?= $player->getPower() ?></i>
+                        <br />
+                        <br />
+                        <i class="fa-solid fa-2x" style="color: blue;">XP&nbsp;<?= $player->getXp() ?></i>
                     </div>
                 </div>
-
+                <br>
+                <div class="border border-rounded p-3" style="width: 100%;">
+                    <?= findChest() ?>
+                </div>
+                <div class="w-100 mx-auto text-center mt-3">
+                    <a class="btn btn-primary" href="../index.php">Retour à l'accueil</a>
+                </div>
             </div>
+
         </div>
     </div>
     <!-- <div style="text-align: center; padding-top: 20px;">
@@ -140,17 +141,5 @@ $chest = new Chest();
 
     </div>
     <br />
-    <div class="border border-rounded p-3" style="width: 100%;">
-        <?= findChest() ?>
-    </div>
-
-    <div class="w-100 mx-auto text-center mt-3">
-        <a class="btn btn-primary" href="../index.php">Retour à l'accueil</a>
-    </div>
-    </div>
-    </div>
-    </div>
-
 </body>
-
 </html>
