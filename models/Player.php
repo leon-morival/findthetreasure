@@ -21,6 +21,7 @@ class Player
             $this->xp = $_SESSION['playerXp'];
             $this->power = $_SESSION['playerPower'];
             $this->pv = $_SESSION['playerPv'];
+            $this->user = $_SESSION['user'];
         } else {
             // Set initial position
             $this->positionX = rand(1, 20);
@@ -33,9 +34,8 @@ class Player
             $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
             $_SESSION['playerPower'] = $this->power;
             $_SESSION['playerPv'] = $this->pv;
+            $_SESSION['user'] = $user;
         }
-
-        $this->user = $user;
     }
 
 
@@ -71,6 +71,7 @@ class Player
         $_SESSION['playerXp'] = $this->xp;
         $_SESSION['playerPower'] = $this->power;
         $_SESSION['playerPv'] = $this->pv;
+        $_SESSION['user'] = $this->user;
     }
 
     function getPositionX()
