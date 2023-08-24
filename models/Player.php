@@ -1,9 +1,11 @@
 <?php
 require_once 'Chest.php';
-
+require_once 'Monster.php'; // Assurez-vous d'inclure correctement la classe Monster
 
 class Player
 {
+
+    private $chestX;
     private $positionX;
     private $positionY;
     private $xp;
@@ -11,53 +13,27 @@ class Player
 
     public function __construct()
     {
-        $this->positionX = rand(0, 20);
-        $this->positionY = rand(0, 20);
         if (isset($_SESSION['playerPositionX'])) {
             $this->positionX = $_SESSION['playerPositionX'];
             $this->positionY = $_SESSION['playerPositionY'];
+            $this->xp = $_SESSION['playerXp'];
+            $this->power = $_SESSION['playerPower'];
+            $this->pv = $_SESSION['playerPv'];
         } else {
             // Set initial position
             $this->positionX = rand(0, 20);
             $this->positionY = rand(0, 20);
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
+            $this->xp = 0;  // Assign initial XP
+            $this->power = rand(50, 100);
+            $this->pv = rand(50, 100);
+            $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
+            $_SESSION['playerPower'] = $this->power;
+            $_SESSION['playerPv'] = $this->pv;
         }
-        // Monster
-        // $monster = new Monster();
-        // $monsterArray = $monster->generateMonsters();
-
-        // echo ('<br>');
-        // foreach ($monsterArray as $monsters) {
-
-        //     if (($this->positionX == $monsters->getPositionX()) && ($this->positionY == $monsters->getPositionY())) {
-
-        //         // echo "<br>";
-        //         // echo "le joueur est sur la case d'un monstre";
-        //         // echo "<br>";
-        //         // echo "position x joueur" . $this->positionX;
-        //         // echo " position y joueur" . $this->positionY;
-        //         // echo "<br>";
-        //         // echo "position x monstre" . $monsters->getPositionX();
-        //         // echo " position y monstre" . $monsters->getPositionY();
-        //         // echo "<br>";
-        //         echo "test";
-        //         // $this->positionX = rand(0, 20);
-        //         // $this->positionY = rand(0, 20);
-        //         reset($monsterArray);
-        //     } else {
-        //     }
-
-        //     // echo "le joueur n'est pas sur la case d'un monstre";
-        //     // echo "<br>";
-        // }
-
-
-
-
-        // $this->xp = 0;
-        // $this->power = rand(50, 100);
     }
+
 
 
     public function move($direction)
@@ -65,8 +41,8 @@ class Player
         switch ($direction) {
             case 0:
 
-                if ($this->positionY < 20) {
-                    $this->positionY++;
+                if ($this->positionY > 1) {
+                    $this->positionY--;
                 }
 
                 break;
@@ -76,32 +52,21 @@ class Player
                 }
                 break;
             case 2:
-                if ($this->positionY > 0) {
-                    $this->positionY--;
+                if ($this->positionY < 20) {
+                    $this->positionY++;
                 }
                 break;
             case 3:
-                if ($this->positionX > 0) {
+                if ($this->positionX > 1) {
                     $this->positionX--;
                 }
                 break;
         }
         $_SESSION['playerPositionX'] = $this->positionX;
         $_SESSION['playerPositionY'] = $this->positionY;
-
-        // // Check if the player is on a monster's position and take action
-        // $monsters = new Monster();
-        // $monsterArray = $monsters->generateMonsters();
-
-        // foreach ($monsterArray as $monster) {
-        //     if ($this->positionX == $monster->getPositionX() && $this->positionY == $monster->getPositionY()) {
-        //         // Handle collision with monster, e.g., reduce player's health or take other actions
-        //         // You can also reset the player's position if needed
-        //         $this->positionX = rand(0, 20);
-        //         $this->positionY = rand(0, 20);
-        //         break;
-        //     }
-        // }
+        $_SESSION['playerXp'] = $this->xp;
+        $_SESSION['playerPower'] = $this->power;
+        $_SESSION['playerPv'] = $this->pv;
     }
 
     function getPositionX()
@@ -112,6 +77,29 @@ class Player
     function getPositionY()
     {
         return $this->positionY;
+    }
+
+    function getPV()
+    {
+        return $this->pv;
+    }
+    function setPV($newPv)
+    {
+        $this->pv = $newPv;
+        $_SESSION['playerPv'] = $this->pv;
+    }
+    function setXp($newXp)
+    {
+        $this->xp = $newXp;
+        $_SESSION['playerXp'] = $this->xp;
+    }
+    function getPower()
+    {
+        return $this->power;
+    }
+    function getXp()
+    {
+        return $this->xp;
     }
 }
 
