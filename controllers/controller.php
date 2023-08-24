@@ -3,14 +3,17 @@ session_start();
 require_once '../models/Player.php';
 require_once '../models/Monster.php';
 require_once '../models/Fight.php';
+require_once '../db/connect.php';
 $user = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
     // Get the submitted username
     session_unset(); // Clear all session variables
     session_destroy(); // Destroy the session
     session_start(); // Start a new session
     $user = $_POST["username"];
 }
+
 $monster = new Monster();
 $player = new Player($user);
 $chest = new Chest();
@@ -22,7 +25,9 @@ $playerY = $player->getPositionY();
 
 $chestX = $chest->getPositionX();
 $chestY = $chest->getPositionY();
-$direction = 0;
+$playerXp = $player->getXp();
+$user = $player->getUser();
+$direction = "0";
 
 // Compare positions and display message if they are the same
 // header('Location: ' . $_SERVER['PHP_SELF']);
@@ -32,16 +37,23 @@ function findChest()
     global $playerY;
     global $chestX;
     global $chestY;
-    if ($playerX === $chestX && $playerY === $chestY) {
-        echo "Congratulations! You found the chest!";
-        echo "player position : " . $playerX . ' ' . $playerY;
-        echo '<br>';
-        echo "chest position : " . $chestX . ' ' . $chestY;
-    } else {
-        echo "Keep exploring...";
+    global $playerXp;
+    global $user;
+    global $conn;
+    global $player;
 
+    if (isset($_GET['direction'])) {
         $direction = (int)$_GET['direction'];
         showDirection($direction);
+    }
+    if ($playerX === $chestX && $playerY === $chestY) {
+        $player->setWin(true);
+
+
+        $sql = "INSERT INTO score  (username, score) VALUES ('$user','$playerXp')";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        echo '<script>window.location.href = "/findthetreaser/views/win.php";</script>';
     }
 }
 
@@ -71,6 +83,7 @@ function showDirection($direction)
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
     $player->move($direction);
+
     foreach ($monster->getMonsters() as $key => $monster) {
         if ($player->getPositionX() == $monster['positionX'] && $player->getPositionY() == $monster['positionY']) {
             // Commencez le combat entre le joueur et le monstre

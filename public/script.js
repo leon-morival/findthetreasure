@@ -1,23 +1,24 @@
-function showModal(message) {
+function redirect() {
+  console.log("es");
   // Display the modal with the given message
   // You can use libraries like Bootstrap or your custom modal implementation
-  alert(message); // Replace this with your modal code
+  alert("test"); // Replace this with your modal code
 }
 // script.js
 document.addEventListener("keydown", function (event) {
   let direction = null;
   console.log(event);
   switch (event.key) {
-    case "ArrowUp":
+    case "ArrowUp" || "z":
       direction = 0;
       break;
-    case "ArrowRight":
+    case "ArrowRight" || "KeyD":
       direction = 1;
       break;
-    case "ArrowDown":
+    case "ArrowDown" || "KeyS":
       direction = 2;
       break;
-    case "ArrowLeft":
+    case "ArrowLeft" || "KeyQ":
       direction = 3;
       break;
   }

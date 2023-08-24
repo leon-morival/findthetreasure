@@ -31,7 +31,7 @@ class Fight
             if ($fightResults['monster']['pv'] <= 0) {
                 $player->setPv($playerPv);
 
-                echo 'Vous avez gagné !';
+
 
                 // Remove the monster from the monsters array
                 $monsters = $_SESSION['monsterArray'];
@@ -56,10 +56,11 @@ class Fight
                 echo "you lose";
                 $playerXp = $player->getXp();
                 echo "nom d'utilisateur: " . $player->getUser();
-
-                $sql = "INSERT INTO score  (username, score) VALUES ('','$playerXp')";
+                // header('Location:' '/findthetreaser');
+                $user = $player->getUser();
+                $sql = "INSERT INTO score  (username, score) VALUES ('$user',0)";
                 mysqli_query($conn, $sql);
-                // header("Location: /findthetreaser/index.php");
+                header("Location: /findthetreaser/views/win.php");
                 // die();
             }
         }
