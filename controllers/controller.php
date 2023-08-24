@@ -53,7 +53,7 @@ function findChest()
         $sql = "INSERT INTO score  (username, score) VALUES ('$user','$playerXp')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
-        header("Location: /findthetreaser/views/win.php");
+        echo '<script>window.location.href = "/findthetreaser/views/win.php";</script>';
     }
 }
 
