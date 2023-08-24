@@ -15,7 +15,7 @@
 
     ?>
     <div style="text-align: center;">
-        <a href="http://localhost/findthetreasure/index.php"><img src="bandeau.jpg" alt="Logo"></a>
+        <a href="/"><img src="bandeau.jpg" alt="Logo"></a>
     </div>
     <div class="container">
         <div class="header">
