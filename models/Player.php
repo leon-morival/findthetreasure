@@ -29,8 +29,8 @@ class Player
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
             $this->xp = 0;  // Assign initial XP
-            $this->power = rand(50, 60);
-            $this->pv = rand(50, 80);
+            $this->power = rand(40, 50);
+            $this->pv = rand(90, 100);
             $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
             $_SESSION['playerPower'] = $this->power;
             $_SESSION['playerPv'] = $this->pv;

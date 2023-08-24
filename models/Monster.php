@@ -24,7 +24,7 @@ class Monster
             $this->x = rand(0, 20);
             $this->y = rand(0, 20);
             $this->pv = rand(60, 80);
-            $this->force = rand(40, 70);
+            $this->force = rand(90, 100);
             $point = ["positionX" => $this->x, "positionY" => $this->y, "PV" => $this->pv, "Force" => $this->force];
 
             if (!$this->isDuplicate($point)) {
