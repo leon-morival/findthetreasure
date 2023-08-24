@@ -10,7 +10,7 @@
 
 <body>
     <div style="text-align: center;">
-        <a href="./index.php"><img src="./public/assets/bandeau.jpg" alt="Logo"></a>
+        <img src="./public/assets/bandeau.jpg" alt="Logo">
     </div>
     <div class="container">
         <div class="header">
@@ -35,6 +35,7 @@
     </div>
     <script>
         function startGame() {
+            window.location.href = './views/view.php'; // Redirige vers la page game.php
             window.location.href = './views/view.php'; // Redirige vers la page game.php
         }
     </script>
