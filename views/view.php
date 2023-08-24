@@ -15,11 +15,8 @@ $chest = new Chest();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monster Game</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../public\css\style.css">
 
 </head>
@@ -55,7 +52,7 @@ $chest = new Chest();
                             if ($player->getPositionX() === $col && $player->getPositionY() === $row) {
                                 echo ' player"><img src="../public/assets/sword_player.png">';
                             } elseif ($chest->getPositionX() === $col && $chest->getPositionY() === $row) {
-                                echo ' chest"><img src="../public/assets/golden_treasure.png">';
+                                echo ' chest"><img src="../public/assets/golden_treasure.png" style="display: none">';
                             } else {
                                 $isMonsterHere = false;
                                 foreach ($monster->getMonsters() as $monsterData) {
@@ -65,7 +62,7 @@ $chest = new Chest();
                                     }
                                 }
                                 if ($isMonsterHere) {
-                                    echo ' monster"><img src="../public/assets/monster.png">';
+                                    echo ' monster"><img src="../public/assets/monster.png" style="display: none">';
                                 } else {
                                     echo '">';
                                 }
@@ -84,27 +81,23 @@ $chest = new Chest();
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=0"><i
-                                    class="fa-solid fa-arrow-up fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=0"><i class="fa-solid fa-arrow-up fa-3x"></i></a>
                         </div>
                         <div class="col-4"></div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=3"><i
-                                    class="fa-solid fa-arrow-left fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=3"><i class="fa-solid fa-arrow-left fa-3x"></i></a>
                         </div>
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=1"><i
-                                    class="fa-solid fa-arrow-right fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=1"><i class="fa-solid fa-arrow-right fa-3x"></i></a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <a href="../controllers/controller.php?direction=2"><i
-                                    class="fa-solid fa-arrow-down fa-3x"></i></a>
+                            <a href="../controllers/controller.php?direction=2"><i class="fa-solid fa-arrow-down fa-3x"></i></a>
                         </div>
                         <div class="col-4"></div>
                     </div>

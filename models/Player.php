@@ -13,8 +13,12 @@ class Player
     private $user;
     private $pv;
 
+
     public function __construct($user)
     {
+        if (!isset($_SESSION['startTime'])) {
+            $_SESSION['startTime'] = time();
+        }
         if (isset($_SESSION['playerPositionX'])) {
             $this->positionX = $_SESSION['playerPositionX'];
             $this->positionY = $_SESSION['playerPositionY'];
@@ -29,8 +33,8 @@ class Player
             $_SESSION['playerPositionX'] = $this->positionX;
             $_SESSION['playerPositionY'] = $this->positionY;
             $this->xp = 0;  // Assign initial XP
-            $this->power = rand(40, 50);
-            $this->pv = rand(90, 100);
+            $this->power = 70;
+            $this->pv = 100;
             $_SESSION['playerXp'] = $this->xp; // Store initial XP in session
             $_SESSION['playerPower'] = $this->power;
             $_SESSION['playerPv'] = $this->pv;
