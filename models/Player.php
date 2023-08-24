@@ -11,6 +11,7 @@ class Player
     private $xp;
     private $power;
     private $user;
+    private $pv;
 
     public function __construct($user)
     {

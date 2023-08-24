@@ -8,7 +8,7 @@ document.addEventListener("keydown", function (event) {
   let direction = null;
   console.log(event);
   switch (event.key) {
-    case "ArrowUp" || "KeyZ":
+    case "ArrowUp" || "z":
       direction = 0;
       break;
     case "ArrowRight" || "KeyD":

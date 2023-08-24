@@ -56,10 +56,10 @@ class Fight
                 echo "you lose";
                 $playerXp = $player->getXp();
                 echo "nom d'utilisateur: " . $player->getUser();
-
+                // header('Location:' '/findthetreaser');
                 $sql = "INSERT INTO score  (username, score) VALUES ('','$playerXp')";
                 mysqli_query($conn, $sql);
-                // header("Location: /findthetreaser/index.php");
+                header("Location: /findthetreaser/index.php");
                 // die();
             }
         }
