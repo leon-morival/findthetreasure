@@ -22,7 +22,7 @@ $playerY = $player->getPositionY();
 
 $chestX = $chest->getPositionX();
 $chestY = $chest->getPositionY();
-
+$direction = 0;
 
 // Compare positions and display message if they are the same
 // header('Location: ' . $_SERVER['PHP_SELF']);
@@ -39,28 +39,30 @@ function findChest()
         echo "chest position : " . $chestX . ' ' . $chestY;
     } else {
         echo "Keep exploring...";
+
         $direction = (int)$_GET['direction'];
         showDirection($direction);
     }
 }
 
-function showDirection($direction) {
-switch ($direction) {
-    case 0:
-        echo '<br> Le joueur s\'est déplacé vers le haut';
-        break;
-    case 1:
-        echo '<br>Le joueur s\'est déplacé vers la droite';
-        break;
-    case 2:
-        echo '<br>Le joueur s\'est déplacé vers le bas';
-        break;
-    case 3:
-        echo '<br>Le joueur s\'est déplacé vers la gauche';
-        break;
-    default:
-        echo '<br>Le joueur stagne';
-}
+function showDirection($direction)
+{
+    switch ($direction) {
+        case 0:
+            echo '<br> Le joueur s\'est déplacé vers le haut';
+            break;
+        case 1:
+            echo '<br>Le joueur s\'est déplacé vers la droite';
+            break;
+        case 2:
+            echo '<br>Le joueur s\'est déplacé vers le bas';
+            break;
+        case 3:
+            echo '<br>Le joueur s\'est déplacé vers la gauche';
+            break;
+        default:
+            echo '<br>Le joueur stagne';
+    }
 }
 
 
