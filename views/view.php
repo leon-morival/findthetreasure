@@ -2,8 +2,8 @@
 require_once '../models/Player.php';
 require_once '../models/Monster.php';
 require_once '../models/Chest.php';
+require_once '../db/connect.php';
 
-$player = new Player();
 $monster = new Monster();
 $chest = new Chest();
 ?>
@@ -20,6 +20,7 @@ $chest = new Chest();
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../public\css\style.css">
+
 </head>
 
 <body class="m-4">
@@ -31,7 +32,7 @@ $chest = new Chest();
         <div class="col-8">
             <div class="text-center">
 
-                <a href="../index.php"><img src="../public/assets/bandeau.jpg" alt="Logo" class="w-100"></a>
+                <!-- <a href="../index.php"><img src="../public/assets/bandeau.jpg" alt="Logo" class="w-100"></a> -->
             </div>
         </div>
         <div class="col-2  p-3 text-center">
@@ -128,12 +129,17 @@ $chest = new Chest();
                         </div>
                         <div class="col-4"></div>
                     </div>
+                    <!-- Reset button -->
+                    <div class="w-100 mx-auto text-center mt-3">
+                        <a class="btn btn-danger" href="../controllers/controller.php?reset=true">Reset Game</a>
+                    </div>
+                    <div class="row">
+
+                    </div>
                 </div>
 
-                <!-- Reset button -->
-                <div class="w-100 mx-auto text-center mt-3">
-                    <a class="btn btn-danger" href="../controllers/controller.php?reset=true">Reset Game</a>
-                </div>
+
+
             </div>
         </div>
     </div>
@@ -142,6 +148,8 @@ $chest = new Chest();
     </div> -->
 
     <?php ?>
+
+    <script src="../public/script.js"></script>
 </body>
 
 </html>

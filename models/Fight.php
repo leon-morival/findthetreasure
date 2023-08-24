@@ -1,14 +1,16 @@
 <?php
 require_once "Player.php";
-
+require_once "../db/connect.php";
 class Fight
 {
+
     public function __construct()
     {
     }
-
     public function startFight($player, $monster)
     {
+        global $conn;
+
         $fightResults = array();
 
         // Store monster's attributes in $fightResults
@@ -19,15 +21,18 @@ class Fight
         $playerPv = $player->getPv();
         $monsterPower = $fightResults['monster']['force'];
 
+
         while ($player->getPV() > 0 && $fightResults['monster']['pv'] > 0) {
             // Player attacks
 
             $fightResults['monster']['pv'] -= $player->getPower();
-            echo     $fightResults['monster']['pv'];
+
             // Check if monster is defeated
             if ($fightResults['monster']['pv'] <= 0) {
                 $player->setPv($playerPv);
+
                 echo 'Vous avez gagné !';
+
                 // Remove the monster from the monsters array
                 $monsters = $_SESSION['monsterArray'];
                 $indexToRemove = array_search($monster, $monsters);
@@ -45,9 +50,17 @@ class Fight
                 // Monster attacks if it's not defeated
                 $player->setPV($player->getPV() - $fightResults['monster']['force']); // Player loses HP equal to monster's force
             }
+
             if ($player->getPV() <= 0) {
                 $player->setPv(0);
                 echo "you lose";
+                $playerXp = $player->getXp();
+                echo "nom d'utilisateur: " . $player->getUser();
+
+                $sql = "INSERT INTO score  (username, score) VALUES ('','$playerXp')";
+                mysqli_query($conn, $sql);
+                // header("Location: /findthetreaser/index.php");
+                // die();
             }
         }
     }

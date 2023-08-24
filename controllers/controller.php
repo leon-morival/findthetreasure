@@ -3,10 +3,18 @@ session_start();
 require_once '../models/Player.php';
 require_once '../models/Monster.php';
 require_once '../models/Fight.php';
+$user = "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Get the submitted username
+    session_unset(); // Clear all session variables
+    session_destroy(); // Destroy the session
+    session_start(); // Start a new session
+    $user = $_POST["username"];
+}
 $monster = new Monster();
-$player = new Player();
+$player = new Player($user);
 $chest = new Chest();
-
+$fight = new Fight();
 $monster->getMonsters();
 // var_dump($monster->getMonsters());
 $playerX = $player->getPositionX();
@@ -14,6 +22,7 @@ $playerY = $player->getPositionY();
 
 $chestX = $chest->getPositionX();
 $chestY = $chest->getPositionY();
+
 
 // Compare positions and display message if they are the same
 // header('Location: ' . $_SERVER['PHP_SELF']);
@@ -34,7 +43,7 @@ function findChest()
 }
 
 
-$fight = new Fight();
+
 // Process user input to move the player
 if (isset($_GET['direction'])) {
     $direction = (int)$_GET['direction'];
@@ -56,7 +65,7 @@ if (isset($_GET['direction'])) {
     session_unset(); // Clear all session variables
     session_destroy(); // Destroy the session
     session_start(); // Start a new session
-    header('Location: ' . $_SERVER['PHP_SELF']);
+    header('Location: /findthetreaser');
 }
 
 
